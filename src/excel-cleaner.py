@@ -4,7 +4,6 @@ from tkinter import Tk
 from tkinter import ttk
 from tkinter import Toplevel
 
-# UI MOdule
 
 # File Selector Module
 # Function:
@@ -94,6 +93,47 @@ def clean_file(file_path):
 # 3. Save the cleaned file
     df.to_excel("~/output/cleaned_file.xlsx", index=False)
     return df
+
+
+
+def show_message():
+    new_win = Toplevel(root)
+    new_win.title("Second")
+    new_win.geometry("200x200")
+    frm = ttk.Frame(new_win, padding=10)
+    frm.grid()
+
+    if 1 != 1:
+        # root = Tk()
+        # frm = ttk.Frame(root, padding=10)
+        # frm.grid()
+        ttk.Label(frm, text="Wrong").grid(column=0, row=0)
+    elif 1 == 1:
+        # root = Tk()
+        # frm = ttk.Frame(root, padding=10)
+        # frm.grid()
+        print("creating label")
+        ttk.Label(frm, text="Right").grid(column=0, row=0)
+        ttk.Button(frm, text="Quit", command=new_win.destroy).grid(column=0, row=10)
+
+# UI MOdule
+# main_window
+root = Tk()
+root.title("Main")
+frm = ttk.Frame(root, padding=10)
+frm.grid()
+# Exit Button
+ttk.Button(frm, text="Quit", command=root.destroy).grid(column=1, row=0)
+# Select Button choose_file()
+#   sub_window show_message()
+ttk.Button(frm, text="Choose File", command=choose_file).grid(column=2, row=0)
+# Clean Button
+
+ttk.Button(frm, text="Clean File" command=choose_file).grid(column=3, row=0)
+
+root.mainloop()
+
+
 
 # # 1. Select a file
 # def choose_file():
